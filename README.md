@@ -1,5 +1,5 @@
 # TMS
-1. Create WebAPI Project
+1. Create WebAPI Project with Onion Architecture
 2. User are allow to perform following tasks
    - Login
    - Register
