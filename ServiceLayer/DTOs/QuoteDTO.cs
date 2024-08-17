@@ -12,6 +12,6 @@ namespace ServiceLayer.DTOs
         [DataType(DataType.Date)]
         public DateTime DueDate { get; set; }
         public decimal Premium { get; set; }
-        public int Sales { get; set; }
+        public string Sales { get; set; }
     }
 }

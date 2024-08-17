@@ -1,13 +1,15 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainLayer.DomainModels
 {
     public class Quotes
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int QuoteID { get; set; }
         [Required]
         public string QuoteType { get; set; }
@@ -22,6 +24,6 @@ namespace DomainLayer.DomainModels
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         public decimal Premium { get; set; }
         [Required]
-        public int Sales { get; set; }
+        public string Sales { get; set; }
     }
 }

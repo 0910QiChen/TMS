@@ -17,6 +17,6 @@ namespace TMS.Models
         [Required]
         public decimal Premium { get; set; }
         [Required]
-        public int Sales { get; set; }
+        public string Sales { get; set; }
     }
 }

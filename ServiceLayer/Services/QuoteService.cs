@@ -6,6 +6,7 @@ using ServiceLayer.DTOs;
 using ServiceLayer.Interfaces;
 using AutoMapper;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ServiceLayer.Services
 {
@@ -59,9 +60,29 @@ namespace ServiceLayer.Services
 
         public void RemoveQuote(int id)
         {
-            var quote = _unitOfWork.QuoteRepo.GetById(id);
+            var quote = _unitOfWork.QuoteRepo.GetByQuoteID(id);
             _unitOfWork.QuoteRepo.Delete(quote);
             _unitOfWork.commit();
+        }
+
+        public int GetNextAvailableID()
+        {
+            var existingIDs = _unitOfWork.QuoteRepo.GetAllIDs().OrderBy(id => id).ToList();
+            int nextId = 1;
+
+            foreach (var id in existingIDs)
+            {
+                if (id == nextId)
+                {
+                    nextId++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return nextId;
         }
     }
 }

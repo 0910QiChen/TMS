@@ -10,5 +10,6 @@ namespace ServiceLayer.Interfaces
         void AddQuote(QuoteDTO quoteDTO);
         void EditQuote(int id, QuoteDTO quoteDTO);
         void RemoveQuote(int id);
+        int GetNextAvailableID();
     }
 }

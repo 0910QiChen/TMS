@@ -6,12 +6,12 @@ namespace RepositoryLayer.Contexts
 {
     public class SystemContext : DbContext
     {
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Quotes> Quotes { get; set; }
+
         public SystemContext() : base("SystemContext")
         {
         }
-
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Quotes> Quotes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

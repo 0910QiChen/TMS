@@ -76,10 +76,12 @@ namespace TMS.Controllers
             try
             {
                 var quoteDTO = quoteMapper.Map<QuoteDTO>(quoteVM);
+                quoteDTO.QuoteID = quoteService.GetNextAvailableID();
                 quoteService.AddQuote(quoteDTO);
                 return Ok(new { message = "Quote Added Successfully!",
                     quote = new
                     {
+                        quoteDTO.QuoteID,
                         quoteDTO.QuoteType,
                         quoteDTO.Description,
                         quoteDTO.DueDate,
