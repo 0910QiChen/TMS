@@ -29,7 +29,7 @@ namespace ServiceLayer.Services
 
         public QuoteDTO GetQuote(int id)
         {
-            var quoteDTO = mapper.Map<QuoteDTO>(_unitOfWork.QuoteRepo.GetById(id));
+            var quoteDTO = mapper.Map<QuoteDTO>(_unitOfWork.QuoteRepo.GetByQuoteID(id));
             return quoteDTO;
         }
 
@@ -49,7 +49,7 @@ namespace ServiceLayer.Services
         public void EditQuote(int id, QuoteDTO quoteDTO)
         {
 
-            var quote = _unitOfWork.QuoteRepo.GetById(id);
+            var quote = _unitOfWork.QuoteRepo.GetByQuoteID(id);
             mapper.Map(quoteDTO, quote);
             if(quote != null)
             {
