@@ -43,7 +43,7 @@ namespace TMS.Controllers
                 var existingUser = userDTOs.Where(u => u.UserName  == userVM.UserName).FirstOrDefault();
                 if (existingUser != null)
                 {
-                    return Content(HttpStatusCode.Conflict, new { error = "Username already exists" });
+                    return Content(HttpStatusCode.Conflict, new { error = "User already Exist" });
                 }
                 var newUser = userMapper.Map<UserDTO>(userVM);
                 userService.Register(newUser);
